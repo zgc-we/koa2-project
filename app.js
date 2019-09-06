@@ -14,10 +14,12 @@ const users = require('./routes/users')
 // const m1 = require('./midleWare/m1');
 // const m2 = require('./midleWare/m2');
 const cors = require('./midleWare/koa-cors');
+const cookie = require('./midleWare/cookie');
 // app.use(pv());
 // app.use(m1());
 // app.use(m2());
 app.use(cors); // 跨域
+app.use(cookie()); // 添加cookie
 
 
 // error handler
