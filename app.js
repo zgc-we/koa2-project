@@ -9,6 +9,15 @@ const logger = require('koa-logger')
 const index = require('./routes/index')
 const users = require('./routes/users')
 
+// 自定影中间件
+const pv = require('./midleWare/pv');
+const m1 = require('./midleWare/m1');
+const m2 = require('./midleWare/m2');
+app.use(pv());
+app.use(m1());
+app.use(m2());
+
+
 // error handler
 onerror(app)
 
