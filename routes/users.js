@@ -8,9 +8,9 @@ const superagent = charset(require('superagent'));
 let arr;
 
 router.get('/users', function (ctx, next) {
-  url = 'http://shop.bytravel.cn/produce/index226.html'; //target地址
+  url = 'https://www.yesmywine.com/'; //target地址
   superagent.get(url)
-    .charset('gbk')  // 当前页面编码格式
+    .charset('utf-8')  // 当前页面编码格式
     .buffer(true)
     .end((err, data) => { //页面获取到的数据
       if (err) {
@@ -27,14 +27,17 @@ router.get('/users', function (ctx, next) {
         obj = {};
         arr = [];
       // cheerio的使用类似jquery的操作
-      $("table tbody").each((index, element) => {
+      $(".goodslist ul").each((index, element) => {
         let $element = $(element);
-        $element.find('#tctitle').next().find('a').addClass('link').attr('class', 'link').text('')
+        // $element.find('#tctitle').next().find('a').addClass('link').attr('class', 'link').text('')
+        $element.find('.clearfix').find('li>dl>dd>a').find('.pname').text();
         arr.push({
-          'title': $element.find('a.blue14b').text(),
-          'image': $element.find('#bright img').attr('src'),
-          'summary': $element.find('#tctitle').next().text(),
-          'is_cgiia': $element.find('#tctitle font').attr('color') === 'green' ? 1 : 0
+          'title': $element.find('.pname').text().trim().replace(/\s/g,"").replace(/\\t/g,"").replace(/\\n/g,""),
+          'image': `https://www.yesmywine.com/${$element.find('.pname').attr('href')}`,
+          'num': $element.find('.price').text().trim().replace(/\s/g,"").replace(/\\t/g,"").replace(/\\n/g,"")
+          // 'image': $element.find('#bright img').attr('src'),
+          // 'summary': $element.find('#tctitle').next().text(),
+          // 'is_cgiia': $element.find('#tctitle font').attr('color') === 'green' ? 1 : 0
         })
       })
     })
