@@ -1,0 +1,34 @@
+[
+    {
+      "ico": "http://localhost:3000/img/types/7.png",
+      "txt": "美食"
+    },
+    {
+      "ico": "./img/types/0.png",
+      "txt": "美团超市"
+    },
+    {
+      "ico": "./img/types/1.png",
+      "txt": "生鲜果蔬"
+    },
+    {
+      "ico": "./img/types/5.png",
+      "txt": "甜点饮品"
+    },
+    {
+      "ico": "./img/types/4.png",
+      "txt": "正餐优选"
+    },
+    {
+      "ico": "./img/types/2.png",
+      "txt": "美团专送"
+    },
+    {
+      "ico": "./img/types/3.png",
+      "txt": "能量西餐"
+    },
+    {
+      "ico": "./img/types/6.png",
+      "txt": "精品小吃"
+    }
+  ]

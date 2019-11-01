@@ -1,6 +1,8 @@
 const router = require('koa-router')()
-
 // router.prefix('/koa'); // 默认加上前缀
+
+let _prodcutionList = require('../public/data/index-list.json');
+let _titleList = require('../public/data/titleList.json')
 
 router.get('/', async (ctx, next) => {
   ctx.cookies.set('name', "zhangsan"); // 创建 cookie 
@@ -27,6 +29,20 @@ router.get('/userinfo', async (ctx, next) => { // json类型
     name: '张三',
     imgurl: 'http://img1.imgtn.bdimg.com/it/u=2174909441,2495215020&fm=26&gp=0.jpg'
   }
+})
+
+router.get('/prodcutionList', async (ctx, next) => {
+  ctx.body = {
+    code: '0',
+    data: _prodcutionList,
+  };
+})
+
+router.get('/titleList', async (ctx, next) => {
+  ctx.body = {
+    code: '0',
+    data: _titleList,
+  };
 })
 
 module.exports = router
