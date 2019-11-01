@@ -1,6 +1,6 @@
 [
     {
-      "ico": "http://localhost:3000/img/types/7.png",
+      "ico": "./img/types/7.png",
       "txt": "美食"
     },
     {
