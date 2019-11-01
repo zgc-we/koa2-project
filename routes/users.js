@@ -10,13 +10,10 @@ let arr;
 router.get('/users', function (ctx, next) {
   url = 'https://www.yesmywine.com/'; //target地址
   superagent.get(url)
-    .charset('utf-8')  // 当前页面编码格式
+    .charset('utf-8') 
     .buffer(true)
-    .end((err, data) => { //页面获取到的数据
-      if (err) {
-        // return next(err); 
-        console.log('页面不存在', err)
-      }
+    .end((err, data) => {
+      if (err) {  console.log('页面不存在', err) }
       let html = data.text,
         $ = cheerio.load(html, {
           decodeEntities: false,
