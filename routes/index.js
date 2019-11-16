@@ -45,4 +45,25 @@ router.get('/titleList', async (ctx, next) => {
   };
 })
 
+router.post('/user/login', async (ctx, next) => {
+  console.log(JSON.stringify(ctx.body), '------body-----')
+  ctx.body = [{
+    avatar: "http://blog.sosout.com/images/common/default.png",
+    email: "110774443896@qq.com",
+    id: 1,
+    name: "GongXiaoZhu",
+    user_name: "GongXiaoZhu"
+  }]
+})
+
+router.get('/user/getUser', async (ctx, next) => {
+  ctx.body = [{
+    avatar: "http://blog.sosout.com/images/common/default.png",
+    email: "110774443896@qq.com",
+    id: 1,
+    name: "GongXiaoZhu",
+    user_name: "GongXiaoZhu"
+  }]
+})
+
 module.exports = router
