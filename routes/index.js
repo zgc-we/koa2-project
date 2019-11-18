@@ -45,4 +45,35 @@ router.get('/titleList', async (ctx, next) => {
   };
 })
 
+router.post('/user/login', async (ctx, next) => {
+  ctx.body = {
+    code: '0',
+    data: [{
+      avatar: "http://blog.sosout.com/images/common/default.png",
+      email: "1107743896@qq.com",
+      id: 1,
+      name: "GongXiaoZhu",
+      user_name: "123456"
+    }],
+  };
+})
+
+router.get('/user/getUser', async (ctx, next) => {
+  var requset_url = ctx.path.query;
+  console.log(requset_url, '-------urlurlurlurlurlurlurlurl----')
+  //将字符串格式参数转化为对象使用
+  // var strurl  = url.parse(requset_url,true).query;
+  // console.log(strurl, '----------str------')
+  ctx.body = {
+    code: '0',
+    data: [{
+      avatar: "http://blog.sosout.com/images/common/default.png",
+      email: "1107743896@qq.com",
+      id: 1,
+      name: "GongXiaoZhu",
+      user_name: "123456"
+    }],
+  };
+})
+
 module.exports = router

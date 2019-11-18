@@ -15,13 +15,13 @@ const users = require('./routes/users')
 // const m2 = require('./midleWare/m2');
 const cors = require('./midleWare/koa-cors');
 const cookie = require('./midleWare/cookie');
-const logs = require('./midleWare/logs');
+// const logs = require('./midleWare/logs');
 // app.use(pv());
 // app.use(m1());
 // app.use(m2());
 app.use(cors); // 跨域
 app.use(cookie()); // 添加cookie
-app.use(logs());
+// app.use(logs());
 
 
 // error handler
