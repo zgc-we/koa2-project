@@ -5,7 +5,7 @@ let _prodcutionList = require('../public/data/index-list.json');
 let _titleList = require('../public/data/titleList.json')
 
 router.get('/', async (ctx, next) => {
-  ctx.cookies.set('name', "zhangsan"); // 创建 cookie 
+  ctx.cookies.set('name', "zhangsan", {httpOnly:true}); // 创建 cookie 
   await ctx.render('index', {
     title: 'Hello Koa 2!'
   })
@@ -17,7 +17,7 @@ router.get('/string', async (ctx, next) => { // 字符串类型
 })
 
 router.get("/login", async(ctx, next) => {
-  ctx.cookies.set("token", '123456');
+  ctx.cookies.set("loginToken", '1234567816636',{httpOnly:true});
   ctx.body={}
 })
 
@@ -66,4 +66,20 @@ router.get('/user/getUser', async (ctx, next) => {
   }]
 })
 
+router.get('/oauth', async (ctx, next) => {
+  console.log(1111)
+})
+
+
+
 module.exports = router
+
+
+// fetch('http://localhost:3000/user/login',{  // 前端 referer 添加 
+//         headers:{
+//             "referer":"http://localhost:3000",
+//         }
+//     }).then((data) => {
+// 	data.text();
+// 	console.log(data)
+// })
